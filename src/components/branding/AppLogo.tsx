@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-import appLogo from "@/assets/screenshots/IMG_6067.png";
+import appLogo from "@/assets/screenshots/logo.png";
 
 type AppLogoProps = {
   className?: string;
