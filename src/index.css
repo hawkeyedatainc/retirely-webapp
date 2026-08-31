@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 28% 7%;
+    --foreground: 210 35% 98%;
+
+    --card: 222 25% 10%;
+    --card-foreground: 210 35% 98%;
+
+    --popover: 222 25% 10%;
+    --popover-foreground: 210 35% 98%;
+
+    --primary: 353 76% 51%;
+    --primary-foreground: 210 35% 98%;
+
+    --secondary: 218 24% 15%;
+    --secondary-foreground: 210 35% 98%;
+
+    --muted: 218 24% 15%;
+    --muted-foreground: 214 16% 66%;
+
+    --accent: 176 62% 38%;
+    --accent-foreground: 210 35% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 20% 21%;
+    --input: 220 20% 21%;
+    --ring: 353 76% 51%;
+
+    --radius: 0.5rem;
+
+    --glow: 353 76% 51%;
+    --glow-secondary: 176 62% 38%;
+    --surface-glass: 220 25% 12%;
+
+    --sidebar-background: 225 25% 8%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 225 25% 6%;
+    --sidebar-accent: 225 20% 14%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 225 15% 18%;
+    --sidebar-ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+    background:
+      linear-gradient(135deg, hsl(222 28% 7%) 0%, hsl(224 29% 9%) 46%, hsl(218 26% 8%) 100%);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-[hsl(var(--surface-glass)/0.6)] backdrop-blur-xl border border-[hsl(var(--border)/0.5)];
+  }
+
+  .glass-card {
+    @apply rounded-lg border border-[hsl(var(--border)/0.45)] bg-[hsl(var(--surface-glass)/0.5)] backdrop-blur-xl;
+  }
+
+  .glow-blue {
+    box-shadow: 0 24px 80px -30px hsl(var(--glow) / 0.55);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 40px hsl(var(--glow) / 0.5);
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#f43f5e] via-[#f8fafc] to-[#2dd4bf];
+  }
+
+  .gradient-border {
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.5), transparent, hsl(var(--glow-secondary) / 0.3));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  .phone-frame {
+    @apply relative rounded-[2.5rem] overflow-hidden shadow-2xl;
+    border: 3px solid hsl(var(--border) / 0.5);
+  }
+}
